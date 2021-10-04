@@ -46,4 +46,8 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
             }
         }
     }
+
+    public boolean[] getIsPrime() {
+        return isPrime;
+    }
 }
