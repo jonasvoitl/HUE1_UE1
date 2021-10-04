@@ -6,16 +6,26 @@ import java.util.Map;
 
 public class EratosthenesPrimeSieve implements PrimeSieve{
 
+    private final int MAX;
     private boolean[] isPrime;
 
     public EratosthenesPrimeSieve(int max) {
-        isPrime = new boolean[max];
+        this.MAX = max;
+    }
+
+    public void getPrimes() {
+        isPrime = new boolean[MAX];
         Arrays.fill(isPrime, true);
 
-        for(int i=0; i<isPrime.length; i++) {
-            if(isPrime[i]==true) {
+        //0 und 1 sind keine Primzahlen
+        isPrime[0]=false;
+        isPrime[1]=false;
+        for(int i=2; i<isPrime.length; i++) {
+            if(isPrime[i]) {
                 for(int j=i; j<isPrime.length; j=j+i) {
-                    isPrime[j]=false;
+                    if(j!=i) {
+                        isPrime[j]=false;
+                    }
                 }
             }
         }
@@ -24,13 +34,13 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
 
     @Override
     public boolean isPrime(int p) {
-        return false;
+        return isPrime[p] ? true : false;
     }
 
     @Override
     public void printPrimes() {
         for(int i=0; i<isPrime.length; i++) {
-            if(isPrime[i]==true) {
+            if(isPrime(i)) {
                 System.out.println(i+"\n");
             }
         }
