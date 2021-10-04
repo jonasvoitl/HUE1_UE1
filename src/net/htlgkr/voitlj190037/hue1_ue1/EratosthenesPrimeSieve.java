@@ -1,5 +1,6 @@
 package net.htlgkr.voitlj190037.hue1_ue1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         this.MAX = max;
     }
 
-    public void getPrimes() {
+    public void calcPrimes() {
         isPrime = new boolean[MAX];
         Arrays.fill(isPrime, true);
 
@@ -29,7 +30,6 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
                 }
             }
         }
-        printPrimes();
     }
 
     @Override
@@ -47,7 +47,13 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         }
     }
 
-    public boolean[] getIsPrime() {
-        return isPrime;
+    public ArrayList<Integer> getPrimes() {
+        ArrayList<Integer> primes = new ArrayList<>();
+        for(int i=0; i<isPrime.length; i++) {
+            if(isPrime(i)) {
+                primes.add(i);
+            }
+        }
+        return primes;
     }
 }
