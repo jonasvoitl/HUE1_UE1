@@ -7,10 +7,10 @@ public class Main {
         Scanner s = new Scanner(System.in);
         int limit = 0;
         do {
-            System.out.println("Geben Sie eine Obergrenze ein. Diese muss Element der natürlichen Zahlen sein.");
+            System.out.println("Geben Sie eine Obergrenze ein. Diese muss mindestens 2 betragen.");
             try {
                 limit = Integer.parseInt(s.nextLine());
-                if(limit<4) {
+                if(limit<2) {
                     throw new IllegalArgumentException();
                 }else {
                     break;

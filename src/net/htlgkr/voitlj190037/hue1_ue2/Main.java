@@ -12,7 +12,7 @@ public class Main {
         //abfrage nach oberlimit
         int limit = 0;
         do {
-            System.out.println("Geben Sie eine Obergrenze ein. Diese muss Element der natürlichen Zahlen sein.");
+            System.out.println("Geben Sie eine Obergrenze ein. Diese muss Element der natürlichen Zahlen und größer als 2 sein.");
             try {
                 limit = Integer.parseInt(s.nextLine());
                 if(limit<4) {
